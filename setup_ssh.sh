@@ -78,14 +78,6 @@ configure_sshd() {
 }
 
 install_packages() {
-    echo "Updating environment variables..."
-    {
-        echo 'export PATH=$PATH:/usr/local/cuda/bin:/usr/local/nvidia/bin:/opt/bin:/opt/conda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
-        echo 'export LD_LIBRARY_PATH=/usr/local/cuda/lib64:/usr/local/cuda/lib:/usr/local/lib/x86_64-linux-gnu:/usr/local/nvidia/lib:/usr/local/nvidia/lib64:/opt/conda/lib:$LD_LIBRARY_PATH'
-        echo 'export CUDA_HOME=/usr/local/cuda'
-    } >>/root/.bashrc
-    source /root/.bashrc
-
     echo "Installing openssh-server..."
     sudo apt-get update
     sudo apt-get install -y openssh-server
